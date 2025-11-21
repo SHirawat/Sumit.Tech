@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio</title>
+    <title>Sumit.Tech</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -233,8 +233,36 @@
         </div>
     </section>
 
-    <footer class="bg-dark-900 py-8 text-center text-slate-500 text-sm border-t border-slate-800">
-        <p>&copy; <span id="current-year"></span> Designed & Built by Sumit Hirawat.</p>
+    <footer class="bg-dark-900 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10 text-slate-400">
+            <div>
+                <p class="text-2xl font-bold text-white tracking-tight"><span class="text-brand-400">&lt;</span>Sumit<span class="text-brand-400">/&gt;</span></p>
+                <p class="mt-4 text-sm leading-relaxed">
+                    Building human-centered products with thoughtful design, clean code, and a knack for delightful details.
+                </p>
+            </div>
+            <div>
+                <p class="text-white font-semibold mb-4">Quick Links</p>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#about" class="hover:text-brand-400 transition-colors">About</a></li>
+                    <li><a href="#skills" class="hover:text-brand-400 transition-colors">Skills</a></li>
+                    <li><a href="#projects" class="hover:text-brand-400 transition-colors">Projects</a></li>
+                    <li><a href="#contact" class="hover:text-brand-400 transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-white font-semibold mb-4">Stay Connected</p>
+                <div class="flex gap-4 text-xl">
+                    <a href="https://github.com/SHirawat" class="hover:text-brand-400 transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="#" class="hover:text-brand-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-brand-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="mt-4 text-sm">Email: <a href="mailto:sumit@hirawat.in" class="text-brand-400 hover:underline">sumit@hirawat.in</a></p>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
+            <p>&copy; <span id="current-year"></span> Designed & Built by Sumit Hirawat. All rights reserved.</p>
+        </div>
     </footer>
 
     <!-- Toast Notification -->
@@ -268,14 +296,14 @@
             ],
             projects: [
                 {
-                    title: "Ayurveda Healings - Ayurvedic Consultation Platform",
+                    title: "Ayurveda Healings - For HTech (tech.hirawat.in)",
                     description: "Discover your unique Ayurvedic constitution and embark on a personalized wellness journey with our comprehensive dosha assessment and expert consultations.",
                     tech: ["JavaScript", "CSS", "HTML"],
                     github: "https://github.com/SHirawat/Ayurveda_Healing",
                     live: "https://ayurveda-healing.lovable.app"
                 },
                 {
-                    title: "Listo - To-Do List",
+                    title: "Listo - To-Do List (Personal Project)",
                     description: "Listo is a Google Calendar-inspired task management app for organizing your daily tasks, setting reminders, and scheduling appointments with ease.",
                     tech: ["JavaScript", "CSS", "HTML"],
                     github: "https://github.com/SHirawat/listo-dailytask",
@@ -289,26 +317,33 @@
                     live: "https://carjewels.pages.dev/"
                 },
                 {
-                    title: "AI Chat Interface",
-                    description: "A clean, dark-mode interface for interacting with LLMs using a custom backend proxy.",
-                    tech: ["Next.js", "OpenAI API", "TypeScript"],
-                    github: "#",
-                    live: "#"
+                    title: "TryAR - Personal Project",
+                    description: "Modular AR-inspired chat cockpit with stacked prompt panels, live token stats, and customizable assistant personas routed through a hardened API proxy.",
+                    tech: ["Figma"],
+                    figma: "https://www.figma.com/design/kPxQAxijYVTjVkpRnisygw/tryar?node-id=0-1&t=RMg8j4ZBBED7FUn5-1",
+                    live: "https://www.figma.com/design/kPxQAxijYVTjVkpRnisygw/tryar?node-id=0-1&t=RMg8j4ZBBED7FUn5-1"
                 },
                 {
-                    title: "Portfolio v1",
-                    description: "My first portfolio site. Kept here for nostalgia and to show progression.",
-                    tech: ["HTML", "Bootstrap", "JQuery"],
-                    github: "#",
-                    live: "#"
+                    title: "Dunzo Clone - Personal Project",
+                    description: "A high-fidelity redesign of the Dunzo on-demand delivery app, covering onboarding, home feed, cart, and tracking flows with refreshed typography, icons, and a brighter green palette for better accessibility.",
+                    tech: ["Figma"],
+                    figma: "https://www.figma.com/design/HzdpeTBiIcpOb0hs3IYJFg/Dunzo-App?node-id=0-1&t=ZZQ0W1M6Ydecn9h3-1",
+                    live: "https://www.figma.com/design/HzdpeTBiIcpOb0hs3IYJFg/Dunzo-App?node-id=0-1&t=ZZQ0W1M6Ydecn9h3-1"
                 },
-                {
-                    title: "Crypto Ticker",
-                    description: "Live cryptocurrency price tracker with historical charts and price alerts.",
-                    tech: ["React Native", "CoinGecko API"],
-                    github: "#",
-                    live: "#"
-                }
+                // {
+                //     title: "Portfolio v1",
+                //     description: "My first portfolio site. Kept here for nostalgia and to show progression.",
+                //     tech: ["HTML", "Bootstrap", "JQuery"],
+                //     github: "#",
+                //     live: "#"
+                // },
+                // {
+                //     title: "Crypto Ticker",
+                //     description: "Live cryptocurrency price tracker with historical charts and price alerts.",
+                //     tech: ["React Native", "CoinGecko API"],
+                //     github: "#",
+                //     live: "#"
+                // }
             ]
         };
 
@@ -334,18 +369,27 @@
         const projectsContainer = document.getElementById('projects-container');
         personalData.projects.forEach(project => {
             const techBadges = project.tech.map(t => `<span class="text-xs font-mono text-brand-400 mr-3">${t}</span>`).join('');
+            const githubLink = project.github ? `
+                <a href="${project.github}" class="text-slate-400 hover:text-white transition-colors" title="GitHub Repo">
+                    <i class="fab fa-github text-xl"></i>
+                </a>` : '';
+            const figmaLink = project.figma ? `
+                <a href="${project.figma}" class="text-slate-400 hover:text-white transition-colors" title="Figma File">
+                    <i class="fab fa-figma text-xl"></i>
+                </a>` : '';
+            const liveLink = project.live ? `
+                <a href="${project.live}" class="text-slate-400 hover:text-white transition-colors" title="Live Demo">
+                    <i class="fas fa-external-link-alt text-xl"></i>
+                </a>` : '';
             
             const projectCard = `
                 <article class="bg-slate-800 rounded-xl p-6 flex flex-col h-full card-hover transition-all duration-300 border border-slate-700 hover:border-brand-500/30 reveal-on-scroll opacity-0 translate-y-8">
                     <div class="flex justify-between items-start mb-4">
                         <i class="far fa-folder text-4xl text-brand-400"></i>
                         <div class="flex gap-4">
-                            <a href="${project.github}" class="text-slate-400 hover:text-white transition-colors" title="GitHub Repo">
-                                <i class="fab fa-github text-xl"></i>
-                            </a>
-                            <a href="${project.live}" class="text-slate-400 hover:text-white transition-colors" title="Live Demo">
-                                <i class="fas fa-external-link-alt text-xl"></i>
-                            </a>
+                            ${githubLink}
+                            ${figmaLink}
+                            ${liveLink}
                         </div>
                     </div>
                     
