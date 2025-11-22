@@ -78,9 +78,123 @@
         html {
             scroll-padding-top: 5rem;
         }
+
+        /* Loading Screen Styles */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #020617;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(56, 189, 248, 0.1);
+            border-top-color: #38bdf8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            margin-top: 20px;
+            color: #38bdf8;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Hide body content initially */
+        body.loading {
+            overflow: hidden;
+        }
+
+        body.loading > *:not(#loading-screen) {
+            opacity: 0;
+        }
+
+        /* Enhanced Scroll Animations - More visible and longer duration */
+        .reveal-on-scroll {
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-fade-in {
+            opacity: 0;
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-slide-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-slide-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.7);
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-rotate {
+            opacity: 0;
+            transform: rotate(-10deg) scale(0.8);
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-slide-up {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-on-scroll.visible,
+        .reveal-fade-in.visible,
+        .reveal-slide-left.visible,
+        .reveal-slide-right.visible,
+        .reveal-scale.visible,
+        .reveal-rotate.visible,
+        .reveal-slide-up.visible {
+            opacity: 1;
+            transform: translateX(0) translateY(0) scale(1) rotate(0);
+        }
     </style>
 </head>
-<body class="bg-dark-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-dark-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white loading">
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
@@ -154,7 +268,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row gap-12 items-center">
                 <!-- Image/Avatar Placeholder -->
-                <div class="w-full md:w-1/3 flex justify-center reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+                <div class="w-full md:w-1/3 flex justify-center reveal-slide-left">
                     <div class="relative w-64 h-64">
                         <div class="absolute inset-0 border-2 border-brand-400 rounded-2xl transform translate-x-4 translate-y-4"></div>
                         <div class="absolute inset-0 bg-slate-800 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center group">
@@ -166,7 +280,7 @@
                 </div>
 
                 <!-- Text Content -->
-                <div class="w-full md:w-2/3 reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-200">
+                <div class="w-full md:w-2/3 reveal-slide-right">
                     <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
                         <span class="text-brand-400 mr-2">01.</span> About Me
                         <span class="ml-4 h-px bg-slate-700 flex-grow max-w-xs"></span>
@@ -185,8 +299,8 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-dark-950">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700">
-                <h2 class="text-3xl font-bold text-white mb-12 flex items-center justify-center">
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-12 flex items-center justify-center reveal-slide-up">
                     <span class="text-brand-400 mr-2">02.</span> Tech Stack
                 </h2>
                 
@@ -200,7 +314,7 @@
     <!-- Projects Section -->
     <section id="projects" class="py-24 bg-dark-900">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center reveal-slide-up">
                 <span class="text-brand-400 mr-2">03.</span> Some Things I've Built
                 <span class="ml-4 h-px bg-slate-700 flex-grow max-w-xs"></span>
             </h2>
@@ -214,7 +328,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 bg-dark-950 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal-scale">
             <p class="text-brand-400 font-medium mb-4">04. What's Next?</p>
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Get In Touch</h2>
             <p class="text-slate-400 text-lg mb-10 max-w-xl mx-auto">
@@ -234,7 +348,7 @@
     </section>
 
     <footer class="bg-dark-900 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10 text-slate-400">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10 text-slate-400 reveal-fade-in">
             <div>
                 <p class="text-2xl font-bold text-white tracking-tight"><span class="text-brand-400">&lt;</span>Sumit<span class="text-brand-400">/&gt;</span></p>
                 <p class="mt-4 text-sm leading-relaxed">
@@ -273,6 +387,27 @@
 
     <!-- JavaScript Logic -->
     <script>
+        // --- LOADING SCREEN ---
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            const body = document.body;
+            
+            // Show loading screen for 1-2 seconds (randomized between 1-2 seconds)
+            const loadingTime = 1000 + Math.random() * 1000; // 1000-2000ms
+            
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                body.classList.remove('loading');
+                
+                // Show content with fade-in
+                setTimeout(() => {
+                    document.querySelectorAll('body > *:not(#loading-screen)').forEach(el => {
+                        el.style.opacity = '1';
+                    });
+                }, 100);
+            }, loadingTime);
+        });
+
         // --- CONFIGURATION: EDIT YOUR DETAILS HERE ---
         const personalData = {
             name: "Sumit Hirawat",
@@ -351,13 +486,16 @@
 
         // Render Skills
         const skillsContainer = document.getElementById('skills-grid');
-        personalData.skills.forEach(skill => {
+        personalData.skills.forEach((skill, index) => {
             const iconElement = skill.iconType === 'img'
                 ? `<img src="${skill.icon}" alt="${skill.name} icon" class="w-10 h-10 object-contain transition-transform group-hover:scale-110">`
                 : `<i class="${skill.icon} text-3xl ${skill.color || ''} group-hover:scale-110 transition-transform"></i>`;
 
+            // Use slide-up animation for skills (more natural for grid layout)
+            const animationClass = 'reveal-slide-up';
+
             const skillCard = `
-                <div class="bg-slate-800 p-4 rounded-xl flex items-center gap-4 hover:bg-slate-700 transition-colors border border-slate-700 hover:border-brand-500/50 group">
+                <div class="bg-slate-800 p-4 rounded-xl flex items-center gap-4 hover:bg-slate-700 transition-colors border border-slate-700 hover:border-brand-500/50 group ${animationClass}">
                     ${iconElement}
                     <span class="font-semibold text-slate-300">${skill.name}</span>
                 </div>
@@ -367,7 +505,7 @@
 
         // Render Projects
         const projectsContainer = document.getElementById('projects-container');
-        personalData.projects.forEach(project => {
+        personalData.projects.forEach((project, index) => {
             const techBadges = project.tech.map(t => `<span class="text-xs font-mono text-brand-400 mr-3">${t}</span>`).join('');
             const githubLink = project.github ? `
                 <a href="${project.github}" class="text-slate-400 hover:text-white transition-colors" title="GitHub Repo">
@@ -382,8 +520,11 @@
                     <i class="fas fa-external-link-alt text-xl"></i>
                 </a>` : '';
             
+            // Use slide-up animation for projects (more natural and clear)
+            const projectAnimation = 'reveal-slide-up';
+
             const projectCard = `
-                <article class="bg-slate-800 rounded-xl p-6 flex flex-col h-full card-hover transition-all duration-300 border border-slate-700 hover:border-brand-500/30 reveal-on-scroll opacity-0 translate-y-8">
+                <article class="bg-slate-800 rounded-xl p-6 flex flex-col h-full card-hover transition-all duration-300 border border-slate-700 hover:border-brand-500/30 ${projectAnimation}">
                     <div class="flex justify-between items-start mb-4">
                         <i class="far fa-folder text-4xl text-brand-400"></i>
                         <div class="flex gap-4">
@@ -414,6 +555,11 @@
         // Set Name Dynamically
         document.getElementById('hero-name').innerText = personalData.name;
 
+        // Observe dynamically added elements after rendering
+        setTimeout(() => {
+            observeRevealElements();
+        }, 100);
+
         // --- INTERACTIVITY ---
 
         // Mobile Menu Toggle
@@ -441,25 +587,88 @@
             });
         });
 
-        // Scroll Reveal Animation
+        // Enhanced Scroll Reveal Animation - Triggers when entering sections
+        // rootMargin: '-50px' means animation starts 50px before element enters viewport
         const observerOptions = {
             root: null,
-            rootMargin: '0px',
-            threshold: 0.1
+            rootMargin: '-50px 0px -50px 0px', // More stable trigger point
+            threshold: 0.15 // Trigger when 15% of element is visible
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        // Track observed elements to avoid duplicate observations
+        const observedElements = new Set();
+        // Track elements that are currently animated to prevent re-animation
+        const animatedElements = new Set();
+        // Track pending timeouts to prevent multiple animations
+        const pendingAnimations = new Map();
+
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.remove('opacity-0', 'translate-y-8');
-                    observer.unobserve(entry.target);
+                    // Only animate if not already animated and no animation is pending
+                    if (!animatedElements.has(entry.target) && !pendingAnimations.has(entry.target)) {
+                        // Get all sibling elements with reveal classes in the same container
+                        const parent = entry.target.closest('section, div[id]');
+                        if (parent) {
+                            const siblings = Array.from(parent.querySelectorAll('.reveal-on-scroll, .reveal-fade-in, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-rotate, .reveal-slide-up'));
+                            const index = siblings.indexOf(entry.target);
+                            // Stagger delay: 100ms per element
+                            const delay = index * 100;
+                            
+                            const timeoutId = setTimeout(() => {
+                                entry.target.classList.add('visible');
+                                animatedElements.add(entry.target);
+                                pendingAnimations.delete(entry.target);
+                            }, delay);
+                            
+                            pendingAnimations.set(entry.target, timeoutId);
+                        } else {
+                            entry.target.classList.add('visible');
+                            animatedElements.add(entry.target);
+                        }
+                    }
+                } else {
+                    // Clear any pending animation
+                    if (pendingAnimations.has(entry.target)) {
+                        clearTimeout(pendingAnimations.get(entry.target));
+                        pendingAnimations.delete(entry.target);
+                    }
+                    // Remove visible class and mark as not animated when leaving viewport
+                    entry.target.classList.remove('visible');
+                    animatedElements.delete(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
-            observer.observe(el);
-        });
+        // Function to observe all reveal elements
+        function observeRevealElements() {
+            const revealSelectors = [
+                '.reveal-on-scroll',
+                '.reveal-fade-in',
+                '.reveal-slide-left',
+                '.reveal-slide-right',
+                '.reveal-scale',
+                '.reveal-rotate',
+                '.reveal-slide-up'
+            ];
+
+            revealSelectors.forEach(selector => {
+                document.querySelectorAll(selector).forEach((el, index) => {
+                    // Only observe if not already observed
+                    if (!observedElements.has(el)) {
+                        // Add data attribute for stagger effect
+                        el.setAttribute('data-animation-index', index);
+                        observer.observe(el);
+                        observedElements.add(el);
+                    }
+                });
+            });
+        }
+
+        // Initial observation after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            observeRevealElements();
+        }, 100);
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
