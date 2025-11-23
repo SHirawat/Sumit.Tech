@@ -619,7 +619,7 @@
         const skillsContainer = document.getElementById('skills-grid');
         personalData.skills.forEach((skill, index) => {
             const iconElement = skill.iconType === 'img'
-                ? `<img src="${skill.icon}" alt="${skill.name} icon" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain transition-transform group-hover:scale-110">`
+                ? `<img src="${skill.icon}" alt="${skill.name} icon" class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-contain transition-transform group-hover:scale-110">`
                 : `<i class="${skill.icon} text-3xl ${skill.color || ''} group-hover:scale-110 transition-transform"></i>`;
 
             // Use slide-up animation for skills (more natural for grid layout)
