@@ -186,6 +186,42 @@
             opacity: 1;
             transform: translateX(0) translateY(0) scale(1) rotate(0);
         }
+
+        /* Filter Tab Styles */
+        .filter-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background: transparent;
+            color: #38bdf8;
+            cursor: pointer;
+        }
+
+        .filter-tab:hover {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .filter-tab.active {
+            background: #38bdf8;
+            color: white;
+            border-color: #38bdf8;
+        }
+
+        /* Project Card Filter Animation */
+        .project-card {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .project-card.hidden {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+            position: absolute;
+        }
     </style>
 </head>
 <body class="bg-dark-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white loading">
@@ -289,6 +325,9 @@
                     <p class="text-slate-400 mb-6 leading-relaxed">
                         Fast-forward to today, My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients. Using AI to enhance my skills and improve my workflow.
                     </p>
+                    <a href="about-me.html" class="inline-block px-6 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-semibold transition-all shadow-lg shadow-brand-500/25">
+                        Know More
+                    </a>
                 </div>
             </div>
         </div>
@@ -316,6 +355,14 @@
                 <span class="text-brand-400 mr-2">03.</span> Some Things I've Built
                 <span class="ml-4 h-px bg-slate-700 flex-grow max-w-xs"></span>
             </h2>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap gap-3 mb-8 justify-center reveal-slide-up" id="project-filters">
+                <button class="filter-tab active" data-filter="all">All Projects</button>
+                <button class="filter-tab" data-filter="Website">Website</button>
+                <button class="filter-tab" data-filter="Designing">Designing</button>
+                <!-- <button class="filter-tab" data-filter="automation">Automation</button> -->
+            </div>
 
             <!-- Projects Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
@@ -433,50 +480,49 @@
                     description: "Discover your unique Ayurvedic constitution and embark on a personalized wellness journey with our comprehensive dosha assessment and expert consultations.",
                     tech: ["JavaScript", "CSS", "HTML"],
                     github: "https://github.com/SHirawat/Ayurveda_Healing",
-                    live: "https://ayurveda-healing.lovable.app"
+                    live: "https://ayurveda-healing.lovable.app",
+                    category: "Website"
                 },
                 {
                     title: "Listo - To-Do List (Personal Project)",
                     description: "Listo is a Google Calendar-inspired task management app for organizing your daily tasks, setting reminders, and scheduling appointments with ease.",
                     tech: ["JavaScript", "CSS", "HTML"],
                     github: "https://github.com/SHirawat/listo-dailytask",
-                    live: "https://listo-dailytask.lovable.app"
+                    live: "https://listo-dailytask.lovable.app",
+                    category: "Website"
                 },
                 {
                     title: "Car Jewels",
                     description: "A modern, responsive website for Car Jewels, a premium car accessories and tires business located in Bangalore, Karnataka. The website showcases various automotive products and services with an elegant design and seamless WhatsApp integration for easy ordering.",
                     tech: ["JavaScript", "HTML", "CSS"],
                     github: "https://github.com/SHirawat/CarJewels",
-                    live: "https://carjewels.pages.dev/"
+                    live: "https://carjewels.pages.dev/",
+                    category: "Website"
                 },
                 {
                     title: "TryAR - For HTech (tryar.hirawat.in)",
                     description: "Modular AR-inspired chat cockpit with stacked prompt panels, live token stats, and customizable assistant personas routed through a hardened API proxy.",
                     tech: ["Figma"],
                     figma: "https://www.figma.com/design/kPxQAxijYVTjVkpRnisygw/tryar?node-id=0-1&t=RMg8j4ZBBED7FUn5-1",
-                    live: "https://www.figma.com/design/kPxQAxijYVTjVkpRnisygw/tryar?node-id=0-1&t=RMg8j4ZBBED7FUn5-1"
+                    live: "https://www.figma.com/design/kPxQAxijYVTjVkpRnisygw/tryar?node-id=0-1&t=RMg8j4ZBBED7FUn5-1",
+                    category: "Designing"
                 },
                 {
                     title: "Dunzo Clone - Personal Project",
                     description: "A high-fidelity redesign of the Dunzo on-demand delivery app, covering onboarding, home feed, cart, and tracking flows with refreshed typography, icons, and a brighter green palette for better accessibility.",
                     tech: ["Figma"],
                     figma: "https://www.figma.com/design/HzdpeTBiIcpOb0hs3IYJFg/Dunzo-App?node-id=0-1&t=ZZQ0W1M6Ydecn9h3-1",
-                    live: "https://www.figma.com/design/HzdpeTBiIcpOb0hs3IYJFg/Dunzo-App?node-id=0-1&t=ZZQ0W1M6Ydecn9h3-1"
+                    live: "https://www.figma.com/design/HzdpeTBiIcpOb0hs3IYJFg/Dunzo-App?node-id=0-1&t=ZZQ0W1M6Ydecn9h3-1",
+                    category: "Designing"
                 },
                 {
                     title: "BeyondBox",
                     description: "A sleek, responsive website for BeyondBox that highlights innovative storage solutions for home and workspace organization. Features include detailed product displays, interactive galleries, and a seamless user experience designed to increase customer engagement.",
                     tech: ["HTML", "Bootstrap", "JQuery"],
                     github: "https://github.com/SHirawat/BeyondBox_Website",
-                    live: "https://beyondbox.pages.dev/"
+                    live: "https://beyondbox.pages.dev/",
+                    category: "Website"
                 },
-                // {
-                //     title: "Crypto Ticker",
-                //     description: "Live cryptocurrency price tracker with historical charts and price alerts.",
-                //     tech: ["React Native", "CoinGecko API"],
-                //     github: "#",
-                //     live: "#"
-                // }
             ]
         };
 
@@ -522,7 +568,7 @@
             const projectAnimation = 'reveal-slide-up';
 
             const projectCard = `
-                <article class="bg-slate-800 rounded-xl p-6 flex flex-col h-full card-hover transition-all duration-300 border border-slate-700 hover:border-brand-500/30 ${projectAnimation}">
+                <article class="project-card bg-slate-800 rounded-xl p-6 flex flex-col h-full card-hover transition-all duration-300 border border-slate-700 hover:border-brand-500/30 ${projectAnimation}" data-category="${project.category || 'all'}">
                     <div class="flex justify-between items-start mb-4">
                         <i class="far fa-folder text-4xl text-brand-400"></i>
                         <div class="flex gap-4">
@@ -552,6 +598,40 @@
 
         // Set Name Dynamically
         document.getElementById('hero-name').innerText = personalData.name;
+
+        // Project Filter Functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const filter = tab.getAttribute('data-filter');
+                
+                // Update active tab
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Filter projects with animation
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                        // Re-trigger animation
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.9)';
+                        setTimeout(() => {
+                            card.classList.add('hidden');
+                        }, 400);
+                    }
+                });
+            });
+        });
 
         // Observe dynamically added elements after rendering
         setTimeout(() => {

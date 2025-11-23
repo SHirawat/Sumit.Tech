@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Sumit.Tech</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        dark: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-dark-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-white tracking-tighter">
+                        <span class="text-brand-400">&lt;</span>Dev<span class="text-brand-400">/&gt;</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-brand-400 transition-colors px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="index.html#skills" class="hover:text-brand-400 transition-colors px-3 py-2 text-sm font-medium">Skills</a>
+                    <a href="index.html#projects" class="hover:text-brand-400 transition-colors px-3 py-2 text-sm font-medium">Projects</a>
+                    <a href="index.html#contact" class="bg-brand-500 hover:bg-brand-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-brand-500/30">Contact Me</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-900 border-t border-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-brand-400">Home</a>
+                <a href="index.html#skills" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-brand-400">Skills</a>
+                <a href="index.html#projects" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-brand-400">Projects</a>
+                <a href="index.html#contact" class="block px-3 py-2 rounded-md text-base font-medium text-brand-400 font-bold">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Me Content -->
+    <section class="min-h-screen pt-24 pb-20 bg-dark-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <a href="index.html" class="inline-flex items-center text-brand-400 hover:text-brand-300 transition-colors mb-6">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                </a>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">About Me</h1>
+                <div class="h-1 w-20 bg-brand-400 rounded"></div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-dark-900 rounded-xl p-8 border border-slate-800">
+                    <h2 class="text-2xl font-bold text-white mb-4">My Journey</h2>
+                    <p class="text-slate-400 leading-relaxed mb-4">
+                        Hello! My name is <span class="text-white font-semibold">Sumit Hirawat</span> and I enjoy creating things that live on the internet. My interest in web development and designing started back in 2023 when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS is pretty fun!
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        Fast-forward to today, my main focus these days is building accessible, inclusive products and digital experiences for a variety of clients. I'm passionate about using AI to enhance my skills and improve my workflow, always staying on the cutting edge of web technologies.
+                    </p>
+                </div>
+
+                <div class="bg-dark-900 rounded-xl p-8 border border-slate-800">
+                    <h2 class="text-2xl font-bold text-white mb-4">What I Do</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-brand-400 mb-2">Web Development</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Building responsive, performant websites using modern technologies and best practices. From simple landing pages to complex web applications.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-brand-400 mb-2">UI/UX Design</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Creating intuitive, beautiful user interfaces with tools like Figma, Photoshop, and Illustrator. Focus on user-centered design principles.
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+
+                <div class="bg-dark-900 rounded-xl p-8 border border-slate-800">
+                    <h2 class="text-2xl font-bold text-white mb-4">Experience</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">HTech</h3>
+                            <p class="text-brand-400 text-sm mb-2">Web Developer & Designer</p>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Working on various client projects including Ayurveda Healings and TryAR, creating modern web solutions and design systems.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Personal Projects</h3>
+                            <p class="text-brand-400 text-sm mb-2">Independent Developer</p>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Building personal projects like Listo (task management app) and various client websites to continuously learn and improve my skills.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark-900 rounded-xl p-8 border border-slate-800">
+                    <h2 class="text-2xl font-bold text-white mb-4">Let's Connect</h2>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/SHirawat" class="text-slate-400 hover:text-brand-400 text-2xl transition-colors" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sumit-hirawat-71a335276/" class="text-slate-400 hover:text-brand-400 text-2xl transition-colors" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/hirawat_sumit/" class="text-slate-400 hover:text-brand-400 text-2xl transition-colors" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:sumit@hirawat.in" class="text-slate-400 hover:text-brand-400 text-2xl transition-colors" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark-900 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-slate-500 text-sm">
+            <p>&copy; <span id="current-year"></span> Designed & Built by Sumit Hirawat. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Footer Year
+        document.getElementById('current-year').innerText = new Date().getFullYear();
+    </script>
+</body>
+</html>
